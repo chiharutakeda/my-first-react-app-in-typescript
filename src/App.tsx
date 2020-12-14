@@ -1,7 +1,17 @@
 import React from 'react';
 
-const App = () => {
-  return <div>React Starter Kit in TypeScript</div>;
+interface AppProps {
+  message?: string;
+}
+
+//コンポーネントに対して型指定してあげないとまずい。
+const App: React.FunctionComponent<AppProps> = ({ message }) => {
+  return <div>{message}</div>;
+};
+
+//propsの初期値設定できる。
+App.defaultProps = {
+  message: 'HELLO default props!!',
 };
 
 export default App;
